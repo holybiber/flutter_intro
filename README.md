@@ -66,3 +66,5 @@ Let's add two `ListTiles` to our `ListView` and add some action when we click on
 Thankfully flutter apps can be built in debug mode which allows fairly easy debugging in all kind of different ways - let's add a breakpoint and see whether our variable actually changes.
 
 Result: The variable changes as expected but apparently the widget doesn't get redrawn...
+
+Fix: We need to call `setState()` in order for the main view to get redrawn!

@@ -41,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('Building main view');
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -71,13 +72,17 @@ class _MyHomePageState extends State<MyHomePage> {
           ListTile(
             title: const Text('Fast forward'),
             onTap: () {
-              _counter += 100;
+              setState(() {
+                _counter += 100;
+              });
             },
           ),
           ListTile(
             title: const Text('Go backwards'),
             onTap: () {
-              _counter -= 1;
+              setState(() {
+                _counter -= 1;
+              });
             },
           )
         ]),
