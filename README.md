@@ -100,3 +100,17 @@ I like Riverpod because it's a smart approach that scales well and you can test 
 ## The 4training.net app
 The app is available for Android in the [Google play store](
 https://play.google.com/store/apps/details?id=net.app4training). It's open source and you find the code at [https://github.com/4training/app4training](https://github.com/4training/app4training) - let's have a tour around it!
+
+## Conclusions
+My personal highlights of working with flutter:
+* efficient and fast development
+* well-documented, good api reference
+* hot reload
+* all the tools you need (lint, debugging, profiling, ...) come with flutter and work out of the box
+* good introductory videos
+* [pub.dev](https://pub.dev/packages) gives a good overview over the health of a module
+* flutter-core supported important modules
+
+Challenges:
+* fast development → many web search results are already outdated
+* some libraries are not (yet) available for dart
