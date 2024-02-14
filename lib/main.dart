@@ -51,9 +51,9 @@ class _MyHomePageState extends State<MyHomePage> {
           DrawerHeader(
             child: Center(
               child: Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 color: Colors.orange,
-                child: Column(
+                child: const Column(
                   children: [
                     Text(
                       'ICCM Europe',

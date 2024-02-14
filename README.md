@@ -12,6 +12,7 @@ Spoiler: I'm happy with my choice to use flutter for app development.
 * Dart and flutter: the overview
 * Quickstart: Getting a new project running
 * Adding some widgets
+* Formatting and linting
 * Debugging
 * Adding a test
 * Strategic decisions: State management
@@ -47,3 +48,14 @@ And let's add some widgets into the drawer to get a feeling for "everything is a
 And you get a feeling of how you nest many widgets into each other in flutter - the "widget tree". The styling feels similar to styling HTML with CSS. Including various details like that the `Column` widget by default takes all vertical space...
 
 However we have no seperation between UI model, styling and code - with flutter everything is code (that needs be structured in a smart way of course)
+
+## Formatting and linting
+No need to worry about indentations or discuss about coding styles: dart comes with a default formatter. It should be enabled in your IDE but you can also run it from the command line:
+
+`dart format .`
+
+Also dart has a helpful linter and it's a wise decision to use it and only accept code that has no linter issues. Again you should have it enabled it in your IDE but you can also run it from the command line:
+
+`dart analyze`
+
+Let's fix the issues and add `const` to constructors wherever possible. This improves performance as flutter never needs to re-build these widgets in the widget tree.
