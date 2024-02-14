@@ -14,7 +14,7 @@ Spoiler: I'm happy with my choice to use flutter for app development.
 * Adding some widgets
 * Formatting and linting
 * Debugging
-* Adding a test
+* Testing
 * Strategic decisions: State management
 * The 4training.net app
 * Conclusions
@@ -68,3 +68,13 @@ Thankfully flutter apps can be built in debug mode which allows fairly easy debu
 Result: The variable changes as expected but apparently the widget doesn't get redrawn...
 
 Fix: We need to call `setState()` in order for the main view to get redrawn!
+
+## Testing
+When flutter created the project with simple example code it also added a test - let's look at it: [test/widget_test.dart](test/widget_test.dart)
+This is pretty amazing: With just some lines of code we can test a lot of our application and make sure the UI behaves as expected.
+
+Note that we need to use `await` so that the next frame gets drawn and the changes are visible.
+
+Let's now add some more lines to test the functionality we added in the previous steps.
+Important: `tester.pump()` forwards just one frame. It case of animations, many new frames are generated and in order
+to wait for the completion of the animation, we need to use `tester.pumpAndSettle()`!

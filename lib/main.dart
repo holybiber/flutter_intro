@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                     Divider(),
-                    Text('2024 Mosbach'),
+//                    Text('2024 Mosbach'),
 //                    Text('Thursday')
                   ],
                 ),
@@ -73,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
             title: const Text('Fast forward'),
             onTap: () {
               setState(() {
+                Navigator.of(context).pop();
                 _counter += 100;
               });
             },
@@ -81,6 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
             title: const Text('Go backwards'),
             onTap: () {
               setState(() {
+                Navigator.of(context).pop();
                 _counter -= 1;
               });
             },

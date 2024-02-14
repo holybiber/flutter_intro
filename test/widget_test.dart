@@ -27,4 +27,30 @@ void main() {
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
+
+  testWidgets('Test drawer and its actions', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(const MyApp());
+
+    // Verify that our counter starts at 0.
+    expect(find.text('0'), findsOneWidget);
+    expect(find.text('100'), findsNothing);
+
+    expect(find.text('Fast forward'), findsNothing);
+
+    await tester.tap(find.byIcon(Icons.menu));
+//    await tester.pump();
+//  There is a whole animation that needs to finish - wait until there are
+//  no frame changes anymore
+    await tester.pumpAndSettle();
+
+    expect(find.text('ICCM Europe'), findsOneWidget);
+    expect(find.text('Fast forward'), findsOneWidget);
+
+    await tester.tap(find.text('Fast forward'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('ICCM Europe'), findsNothing);
+    expect(find.text('100'), findsOneWidget);
+  });
 }
