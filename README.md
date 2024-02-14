@@ -78,3 +78,7 @@ Note that we need to use `await` so that the next frame gets drawn and the chang
 Let's now add some more lines to test the functionality we added in the previous steps.
 Important: `tester.pump()` forwards just one frame. It case of animations, many new frames are generated and in order
 to wait for the completion of the animation, we need to use `tester.pumpAndSettle()`!
+
+## Strategic decisions: State management
+Let's do some refactoring and put the Drawer code into it's own class. That's good practice because it reduces complexity and makes it easier to test individual pieces of the UI.
+However we run into problems and increasing / decreasing the counter in our drawer isn't easily possible...

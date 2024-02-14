@@ -47,67 +47,69 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      drawer: Drawer(
-        child: ListView(children: [
-          DrawerHeader(
-            child: Center(
-              child: Container(
-                padding: const EdgeInsets.all(20),
-                color: Colors.orange,
-                child: const Column(
-                  children: [
-                    Text(
-                      'ICCM Europe',
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                    ),
-                    Divider(),
-//                    Text('2024 Mosbach'),
-//                    Text('Thursday')
-                  ],
-                ),
-              ),
-            ),
-          ),
-          ListTile(
-            title: const Text('Fast forward'),
-            onTap: () {
-              setState(() {
-                Navigator.of(context).pop();
-                _counter += 100;
-              });
-            },
-          ),
-          ListTile(
-            title: const Text('Go backwards'),
-            onTap: () {
-              setState(() {
-                Navigator.of(context).pop();
-                _counter -= 1;
-              });
-            },
-          )
-        ]),
-      ),
+      drawer: OurDrawer(counter: _counter),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+            const Text('You have pushed the button this many times:'),
+            Text('$_counter',
+                style: Theme.of(context).textTheme.headlineMedium),
+          ])),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class OurDrawer extends StatelessWidget {
+  OurDrawer({
+    super.key,
+    required int counter,
+  }) : _counter = counter;
+
+  int _counter;
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(children: [
+        DrawerHeader(
+            child: Center(
+                child: Container(
+                    padding: const EdgeInsets.all(20),
+                    color: Colors.orange,
+                    child: const Column(
+                      children: [
+                        Text('ICCM Europe',
+                            style: TextStyle(
+                                fontSize: 24, fontWeight: FontWeight.bold)),
+                        Divider(),
+                        //                    Text('2024 Mosbach'),
+                        //                    Text('Thursday')
+                      ],
+                    )))),
+        ListTile(
+            title: const Text('Fast forward'),
+            onTap: () {
+              /*                setState(() {
+                Navigator.of(context).pop();
+                _counter += 100;
+              });*/
+            }),
+        ListTile(
+            title: const Text('Go backwards'),
+            onTap: () {
+              _counter -= 1;
+              /*                setState(() {
+                _counter -= 1;
+              });*/
+            }),
+        ListTile(title: Center(child: Text(_counter.toString())))
+      ]),
     );
   }
 }
