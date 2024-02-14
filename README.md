@@ -82,3 +82,17 @@ to wait for the completion of the animation, we need to use `tester.pumpAndSettl
 ## Strategic decisions: State management
 Let's do some refactoring and put the Drawer code into it's own class. That's good practice because it reduces complexity and makes it easier to test individual pieces of the UI.
 However we run into problems and increasing / decreasing the counter in our drawer isn't easily possible...
+
+As soon as you want to develop more than a very simple testing application, you need to decide for a state management solution that takes care of saving and modifying "global" data and notifying the relevant widgets when something changes so that the UI gets updated as well. Here we'll use [Riverpod](https://riverpod.dev). So let's add the [Riverpod](https://pub.dev/packages/riverpod) package:
+
+`flutter pub add flutter_riverpod`
+
+To get this running, we need to do a couple of things:
+* create a `CounterNotifier` class to encapsulate all functionality of the counter
+* create the `counterProvider` that holds our integer
+* Change widgets from StatelessWidget to `ConsumerWidget`
+* use `ref.watch(counterProvider)` to show the value of the counter and get redrawn whenever something changes
+* use `ref.read(counterProvider.notifier).increase()` to make changes to the counter
+* introduce a `ProviderScope` widget at the root of our widget tree
+
+I like Riverpod because it's a smart approach that scales well and you can test your application well with it by mocking different providers. However it took me a while to understand the concepts behind it and there has been a lot of development on it recently which means that documentation is often outdated.
