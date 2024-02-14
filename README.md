@@ -96,3 +96,7 @@ To get this running, we need to do a couple of things:
 * introduce a `ProviderScope` widget at the root of our widget tree
 
 I like Riverpod because it's a smart approach that scales well and you can test your application well with it by mocking different providers. However it took me a while to understand the concepts behind it and there has been a lot of development on it recently which means that documentation is often outdated.
+
+## The 4training.net app
+The app is available for Android in the [Google play store](
+https://play.google.com/store/apps/details?id=net.app4training). It's open source and you find the code at [https://github.com/4training/app4training](https://github.com/4training/app4training) - let's have a tour around it!
