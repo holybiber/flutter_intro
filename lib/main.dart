@@ -67,6 +67,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+          ),
+          ListTile(
+            title: const Text('Fast forward'),
+            onTap: () {
+              _counter += 100;
+            },
+          ),
+          ListTile(
+            title: const Text('Go backwards'),
+            onTap: () {
+              _counter -= 1;
+            },
           )
         ]),
       ),
